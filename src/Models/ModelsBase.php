@@ -15,24 +15,24 @@ abstract class ModelsBase implements \ArrayAccess
         }
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->__set($offset, $value);
     }
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return array_key_exists($offset, $this->data);
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         if (array_key_exists($offset, $this->data)) {
             $this->data[$offset] = null;
         }
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed 
     {
         return $this->__get($offset);
     }
